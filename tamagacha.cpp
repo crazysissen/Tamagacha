@@ -49,7 +49,6 @@ int main()
 Item gacha()
 {
     
-
     Item item();
 
     return item;
