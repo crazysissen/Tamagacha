@@ -27,7 +27,7 @@ int main()
 
     while(running)
     {
-        //Game here
+        //Insert game here
     }
 
     return 0;
