@@ -5,16 +5,24 @@ namespace ct
 
     enum Color
     {
-        ColorBlack = 30,
-        ColorRed,
-        ColorGreen,
-        ColorYellow,
-        ColorBlue,
-        ColorMagenta,
-        ColorCyan,
-        ColorWhite
+        CBlack = 30,
+        CRed,
+        CGreen,
+        CYellow,
+        CBlue,
+        CMagenta,
+        CCyan,
+        CWhite
     };
 
-    void color(Color foreground = ColorWhite, Color background = ColorBlack, );
+    enum ColorSetting
+    {
+        CSNone = -1,
+        CSReset = 0,
+        CSBold = 1,
+        CSUnderline = 4
+    };
+
+    void color(Color foreground = CWhite, Color background = CBlack, ColorSetting setting = CSNone);
 
 }
