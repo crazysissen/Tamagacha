@@ -17,3 +17,8 @@ void ct::color(Color foreground, Color background, ColorSetting setting)
 
     std::cout << 'm';
 }
+
+void ct::colorReset()
+{
+    color(CWhite, CBlack, CSReset);
+}

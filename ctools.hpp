@@ -24,5 +24,6 @@ namespace ct
     };
 
     void color(Color foreground = CWhite, Color background = CBlack, ColorSetting setting = CSNone);
+    void colorReset();
 
 }

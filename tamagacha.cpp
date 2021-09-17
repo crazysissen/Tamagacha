@@ -23,8 +23,8 @@ int main()
     ct::color(ct::CBlue, ct::CBlack, ct::CSBold);
     std::cout << a << '\n';
 
-    ct::color(ct::CWhite, ct::CBlack, ct::CSReset);
-    
+    ct::colorReset();
+
     while(running)
     {
         //Game here
