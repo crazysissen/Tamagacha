@@ -22,3 +22,19 @@ void ct::colorReset()
 {
     color(CWhite, CBlack, CSReset);
 }
+
+char ct::getChar()
+{
+    char c = 'A';
+    std::cin.get(c);
+
+    return c;
+}
+
+ct::Mod::Mod(Color foreground, Color background, ColorSetting setting)
+    :
+    m_foreground(foreground),
+    m_background(background),
+    m_setting(setting)
+{
+}
