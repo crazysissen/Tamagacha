@@ -1,4 +1,5 @@
 #include <string>
+#include <ostream>
 
 namespace ct
 {
@@ -25,5 +26,25 @@ namespace ct
 
     void color(Color foreground = CWhite, Color background = CBlack, ColorSetting setting = CSNone);
     void colorReset();
+    char getChar();
+
+    class Mod
+    {
+    private:
+        Color m_foreground;
+        Color m_background;
+        ColorSetting m_setting;
+
+    public:
+        Mod(Color foreground = CWhite, Color background = CBlack, ColorSetting setting = CSNone);
+
+
+
+        friend std::ostream& operator<<(std::ostream& os, const Mod& mod)
+        {
+            ct::color(mod.m_foreground, mod.m_background, mod.m_setting);
+            return os;
+        }
+    };
 
 }
