@@ -1,5 +1,8 @@
+#pragma once
+
 #include <string>
 #include <ostream>
+#include <vector>
 
 namespace ct
 {
