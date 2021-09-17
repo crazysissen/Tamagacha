@@ -5,7 +5,7 @@ int main()
 {
     std::string a = "";
 
-    std::cout << "Hello World\n";
+    std::cout << "Hello Sixten boi\n";
     std::cin >> a;
     std::cout << a;
 
