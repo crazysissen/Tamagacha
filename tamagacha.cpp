@@ -5,6 +5,7 @@
 #include <string>
 #include <random>
 
+#include "Item.hpp"
 #include "ctools.hpp"
 
 int main()
@@ -15,6 +16,7 @@ int main()
     int happiness   = 50;
     int hydration   = 100;
     int nutrition   = 20;
+    int money = 10;
 
     bool running = true;
     while(running)
@@ -23,9 +25,11 @@ int main()
         std::cout << "=======================~~ TamaGacha ~~========================\n";
         std::cout << 
             ct::Mod() << "Healthiness: " << ct::Mod(ct::CGreen) << health <<
-            ct::Mod() << "  Happiness: " << ct::Mod(ct::CYellow) << happiness <<
+            ct::Mod() << "  Happiness: " << ct::Mod(ct::CMagenta) << happiness <<
             ct::Mod() << "  Hydration: " << ct::Mod(ct::CCyan) << hydration <<
             ct::Mod() << "  Nutrition: " << ct::Mod(ct::CRed) << nutrition << 
+            ct::Mod() << "  Money: " << ct::Mod(ct::CYellow) << money << 
+
             ct::Mod() << "\n\nEnter input: ";
 
         int a = 0;
@@ -42,3 +46,11 @@ int main()
     return 0;
 }
 
+Item gacha()
+{
+    
+
+    Item item();
+
+    return item;
+}
