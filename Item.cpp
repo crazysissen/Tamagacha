@@ -1,5 +1,12 @@
+#include <random>
+
 #include "Item.hpp"
 
+Item::Item()
+{
+    m_itemType = static_cast<ItemType>(rand() % 5);
+    m_rarity = static_cast<Rarity>(rand() % 5);
+}
 
 Item::Item(int happinessChange, int hydrationChange, int nutritionChange, int healthChange)
 :

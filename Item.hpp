@@ -1,5 +1,6 @@
 class Item
 {
+    Item();
     Item(int happinessChange, int hydrationChange, int nutritionChange, int healthChange);
     ~Item() = default;
 public:
@@ -31,6 +32,8 @@ enum ItemType
 
 enum Rarity
 {
+    RarityCommon,
+    RarityUncommon,
     RarityRare,
     RarityEpic,
     RarityLegendary

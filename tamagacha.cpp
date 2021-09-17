@@ -3,7 +3,6 @@
 #include <stdlib.h>
 #include <time.h>
 #include <string>
-#include <random>
 
 #include "Item.hpp"
 #include "ctools.hpp"
