@@ -10,7 +10,7 @@ int main()
 {
     srand(time(NULL));
 
-    std::vector<Item> playerItems;
+    std::vector<Item> playerItems[(ItemTypeCount - 1) * RarityCount];
 
     int health      = 100;
     int happiness   = 50;
@@ -43,42 +43,29 @@ int main()
         }
         else if(a == 1)
         {
-            Item tempItem = gacha();
-
-            std::cout << "You got:\n";
-            
-            switch (tempItem.getRarity())
+            if(money > 0)
             {
-            case RarityCommon:
-                std::cout << ct::Mod(ct::CWhite) << tempItem.getItemName() 
-                << ct::Mod() << std::endl << std::endl;
-                break;
-            case RarityUncommon:
-                std::cout << ct::Mod(ct::CGreen) << tempItem.getItemName() 
-                << ct::Mod() << std::endl << std::endl;
-                break;
-            case RarityRare:
-                std::cout << ct::Mod(ct::CBlue) << tempItem.getItemName() 
-                << ct::Mod() << std::endl << std::endl;
-                break;
-            case RarityEpic:
-                std::cout << ct::Mod(ct::CMagenta) << tempItem.getItemName() 
-                << ct::Mod() << std::endl << std::endl;
-                break;
-            case RarityLegendary:
-                std::cout << ct::Mod(ct::CYellow) << tempItem.getItemName() 
-                << ct::Mod() << std::endl << std::endl;
-                break;
-            default:
-                break;
-            }
+                money--;
+                
+                Item tempItem = gacha();
 
-            playerItems.push_back(tempItem);
+                if(tempItem.getItemType() == ItemTypeTreasure)
+                {
+                    std::cout << "You got:\n";
+                    std::cout << ct::Mod(ct::CYellow) << 2 * ((int)tempItem.getRarity() + 1) << " gold\n\n" << ct::Mod();
+                    money += 2 * ((int)tempItem.getRarity() + 1);
+                }
+                else
+                {
+                    printGacha(tempItem);
+                    playerItems[tempItem.getItemType() * RarityCount + tempItem.getRarity()].push_back(tempItem);
+                }
+            }
         }
         else if(a == 2)
         {
             std::cout << ct::Mod(ct::CCyan) << "Items:\n" << ct::Mod();
-            printItemVector(playerItems);
+            printItemArray(playerItems);
             std::cout << '\n';
         }
 

@@ -11,8 +11,9 @@ enum ItemType
     ItemTypeToy,
     ItemTypeWater,
     ItemTypeFertilizer,
-    ItemTypeTreasure
+    ItemTypeTreasure,
 
+    ItemTypeCount // <-- Keep Last
 };
 
 enum Rarity
@@ -21,7 +22,9 @@ enum Rarity
     RarityUncommon,
     RarityRare,
     RarityEpic,
-    RarityLegendary
+    RarityLegendary,
+
+    RarityCount // <-- Keep Last
 
 };
 
@@ -67,5 +70,5 @@ private:
     std::string m_itemName;
 };
 
-void printItemVector(std::vector<Item> vector);
+void printItemArray(std::vector<Item> itemArray[]);
 

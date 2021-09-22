@@ -163,10 +163,12 @@ void Item::setStats(ItemType itemType, Rarity rarity)
 }
 
 
-void printItemVector(std::vector<Item> vector)
+void printItemArray(std::vector<Item> itemArray[])
 {
-    for(Item item : vector)
+    for(int i = 0; i < (ItemTypeCount - 1) * RarityCount; i++)
     {
-        std::cout  << item.getItemName() << std::endl;
+        if(!itemArray[i].empty())
+            std::cout  << itemArray[i][0].getItemName() << " x" 
+            << itemArray[i].size() << std::endl;
     }
 }
