@@ -32,16 +32,14 @@ int main()
 
             ct::Mod() << "\n\nEnter input: ";
 
-        int a = 0;
-        std::cin >> a;
-
+        int input = ct::getInt(0, 10);
         std::cout << '\n';
-            
-        if (a == 0)
+
+        if (input == 0)
         {
             running = false;
         }
-        else if(a == 1)
+        else if(input == 1)
         {
             if(money > 0)
             {
@@ -66,7 +64,7 @@ int main()
                 std::cout << ct::Mod(ct::CRed) << "You have no money\n\n" << ct::Mod();
             }
         }
-        else if(a == 2)
+        else if(input == 2)
         {
             std::cout  << ct::Mod(ct::CCyan) << "Items:\n" << ct::Mod();
             printItemArray(playerItems);
