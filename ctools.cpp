@@ -31,6 +31,41 @@ char ct::getChar()
     return c;
 }
 
+int ct::getInt()
+{
+    std::string buffer;
+
+    while(true)
+    {
+        std::cin >> buffer;
+
+        try
+        {
+            int value = std::stoi(buffer);
+            return value;
+        }
+        catch(const std::exception& e)
+        {
+            std::cout << "Invalid. Try again: ";
+        }
+    }
+}
+
+int ct::getInt(int min, int max)
+{
+    while (true)
+    {
+        int value = getInt();
+
+        if (value >= min && value < max)
+        {
+            return value;
+        }
+        
+        std::cout << "Out of range. Try again: ";
+    }
+}
+
 ct::Mod::Mod(Color foreground, Color background, ColorSetting setting)
     :
     m_foreground(foreground),

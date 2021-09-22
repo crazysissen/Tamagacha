@@ -27,6 +27,8 @@ namespace ct
     void color(Color foreground = CWhite, Color background = CBlack, ColorSetting setting = CSNone);
     void colorReset();
     char getChar();
+    int getInt();
+    int getInt(int min, int max);
 
     class Mod
     {

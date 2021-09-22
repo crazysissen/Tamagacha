@@ -19,7 +19,7 @@ int main()
     bool running = true;
     while(running)
     {
-        std::cout << "=======================~~ TamaGacha ~~========================\n";
+        std::cout << "=========================== TamaGacha ============================\n";
         std::cout << 
             ct::Mod() << "Healthiness: " << ct::Mod(ct::CGreen) << health <<
             ct::Mod() << "  Happiness: " << ct::Mod(ct::CYellow) << happiness <<
@@ -27,14 +27,24 @@ int main()
             ct::Mod() << "  Nutrition: " << ct::Mod(ct::CRed) << nutrition << 
             ct::Mod() << "\n\nEnter input: ";
 
-        int a = 0;
-        std::cin >> a;
-
+        int input = ct::getInt(0, 10);
         std::cout << '\n';
-            
-        if (a == 0)
+
+        if (input == 0)
         {
             running = false;
+        }
+        else
+        {
+            switch (input)
+            {
+            case 0:
+                
+                break;
+            
+            default:
+                break;
+            }
         }
     }
 
