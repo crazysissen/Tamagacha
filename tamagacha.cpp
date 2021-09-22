@@ -1,16 +1,16 @@
-#include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 #include <string>
-#include <random>
 
-#include "Item.hpp"
-#include "ctools.hpp"
+#include "Gacha.hpp"
+
 
 int main()
 {
     srand(time(NULL));
+
+    std::vector<Item> playerItems[(ItemTypeCount - 1) * RarityCount];
 
     int health      = 100;
     int happiness   = 50;
@@ -41,16 +41,40 @@ int main()
         {
             running = false;
         }
+        else if(a == 1)
+        {
+            if(money > 0)
+            {
+                money--;
+
+                Item tempItem = gacha();
+
+                if(tempItem.getItemType() == ItemTypeTreasure)
+                {
+                    std::cout << "You got:\n";
+                    std::cout << ct::Mod(ct::CYellow) << 2 * ((int)tempItem.getRarity() + 1) << " gold\n\n" << ct::Mod();
+                    money += 2 * ((int)tempItem.getRarity() + 1);
+                }
+                else
+                {
+                    printGacha(tempItem);
+                    playerItems[tempItem.getItemType() * RarityCount + tempItem.getRarity()].push_back(tempItem);
+                }
+            }
+            else
+            {
+                std::cout << ct::Mod(ct::CRed) << "You have no money\n\n" << ct::Mod();
+            }
+        }
+        else if(a == 2)
+        {
+            std::cout  << ct::Mod(ct::CCyan) << "Items:\n" << ct::Mod();
+            printItemArray(playerItems);
+            std::cout << '\n';
+        }
+
     }
 
     return 0;
 }
 
-Item gacha()
-{
-    
-
-    Item item();
-
-    return item;
-}
