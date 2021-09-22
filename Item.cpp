@@ -3,7 +3,29 @@
 Item::Item()
 {
     m_itemType = static_cast<ItemType>(rand() % 5);
-    m_rarity = static_cast<Rarity>(rand() % 5);
+
+    int randInt = rand() % 100;
+
+    if(randInt < 45)
+    {
+        m_rarity = RarityCommon;
+    }
+    else if(randInt < 75)
+    {
+        m_rarity = RarityUncommon;
+    }
+    else if(randInt < 90)
+    {
+        m_rarity = RarityRare;
+    }
+    else if(randInt < 97)
+    {
+        m_rarity = RarityEpic;
+    }
+    else
+    {
+        m_rarity = RarityLegendary;
+    }
 
     setItemName(formatItemName(m_itemType, m_rarity));
 

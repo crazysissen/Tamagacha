@@ -46,7 +46,7 @@ int main()
             if(money > 0)
             {
                 money--;
-                
+
                 Item tempItem = gacha();
 
                 if(tempItem.getItemType() == ItemTypeTreasure)
@@ -61,10 +61,14 @@ int main()
                     playerItems[tempItem.getItemType() * RarityCount + tempItem.getRarity()].push_back(tempItem);
                 }
             }
+            else
+            {
+                std::cout << ct::Mod(ct::CRed) << "You have no money\n\n" << ct::Mod();
+            }
         }
         else if(a == 2)
         {
-            std::cout << ct::Mod(ct::CCyan) << "Items:\n" << ct::Mod();
+            std::cout  << ct::Mod(ct::CCyan) << "Items:\n" << ct::Mod();
             printItemArray(playerItems);
             std::cout << '\n';
         }
