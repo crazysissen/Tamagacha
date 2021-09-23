@@ -21,6 +21,23 @@ int main()
     bool running = true;
     while(running)
     {
+        if(health > 100)
+        {
+            health = 100;
+        }
+        if(happiness > 100)
+        {
+            happiness = 100;
+        }
+        if(hydration > 100)
+        {
+            hydration = 100;
+        }
+        if(nutrition > 100)
+        {
+            nutrition = 100;
+        }
+        
         //Insert game here
         std::cout << "=======================~~ TamaGacha ~~========================\n";
         std::cout << 
@@ -69,6 +86,35 @@ int main()
             std::cout  << ct::Mod(ct::CCyan) << "Items:\n" << ct::Mod();
             printItemArray(playerItems);
             std::cout << '\n';
+        }
+        else if(input == 3)
+        {
+            bool validInput = false;
+            std::cout << "Which item would you like to use?\n";
+
+            while(!validInput)
+            {
+                printItemArray(playerItems);
+                input = ct::getInt(0, (ItemTypeCount - 1) * RarityCount);
+
+                if(!playerItems[input].empty())
+                {
+                    health += playerItems[input][0].getHealthChange();
+                    happiness += playerItems[input][0].getHappinessChange();
+                    hydration += playerItems[input][0].getHydrationChange();
+                    nutrition += playerItems[input][0].getNutritionChange();
+
+                    std::cout << "\nUsed one " << playerItems[input][0].getItemName() << "\n\n";
+
+                    playerItems[input].pop_back();
+                    validInput = true;
+                }
+                else
+                {
+                    std::cout << ct::Mod(ct::CRed) 
+                    << "\nInvalid input, please try again\n" << ct::Mod();
+                }
+            }   
         }
 
     }

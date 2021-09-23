@@ -1,6 +1,12 @@
 #include "Item.hpp"
 
-Item::Item()
+Item::Item() 
+: 
+m_happinessChange(0),
+m_hydrationChange(0),
+m_nutritionChange(0),
+m_healthChange(0),
+m_moneyChange(0)
 {
     m_itemType = static_cast<ItemType>(rand() % 5);
 
@@ -190,7 +196,7 @@ void printItemArray(std::vector<Item> itemArray[])
     for(int i = 0; i < (ItemTypeCount - 1) * RarityCount; i++)
     {
         if(!itemArray[i].empty())
-            std::cout  << itemArray[i][0].getItemName() << " x" 
-            << itemArray[i].size() << std::endl;
+            std::cout  << i << ": " << itemArray[i][0].getItemName() 
+            << " x" << itemArray[i].size() << std::endl;
     }
 }
