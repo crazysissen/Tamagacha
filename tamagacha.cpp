@@ -30,6 +30,7 @@ int main()
             ct::Mod() << "  Happiness: " << ct::Mod(ct::CYellow) << happiness <<
             ct::Mod() << "  Hydration: " << ct::Mod(ct::CCyan) << hydration <<
             ct::Mod() << "  Nutrition: " << ct::Mod(ct::CRed) << nutrition << 
+            ct::Mod() << "  Money: " << ct::Mod(ct::CYellow) << money << 
             ct::Mod() << "\n(1): Gacha       (2): View Items  (3): Use Items" <<
             ct::Mod() << "\n(4): View Plant  (5): Minigame    (6): Exit Game"  <<
             ct::Mod() << "\n(7): MORE MONEY" <<
