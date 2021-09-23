@@ -8,4 +8,6 @@ Item gacha();
 void animateGacha(Item item);
 void printGacha(Item item);
 
+ct::Color gachaColor(Item item);
+
 #endif //GACHA
