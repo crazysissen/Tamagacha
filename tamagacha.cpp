@@ -40,6 +40,10 @@ int main()
         case 1:
             break;
 
+        case 5:
+            gMinigame();
+            break;
+
         // Exit
         case 6:
             running = false;

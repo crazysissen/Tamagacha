@@ -11,6 +11,8 @@
 
 void gBuyMoney();
 
+int gMinigame();
+
 
 
 #endif
