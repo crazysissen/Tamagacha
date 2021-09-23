@@ -1,3 +1,6 @@
+#ifndef H_CTOOLS
+#define H_CTOOLS
+
 #include <string>
 #include <ostream>
 
@@ -50,3 +53,5 @@ namespace ct
     };
 
 }
+
+#endif

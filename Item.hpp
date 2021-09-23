@@ -1,3 +1,24 @@
+#ifndef H_ITEM
+#define H_ITEM
+
+enum ItemType
+{
+    ItemTypeFood,
+    ItemTypeToy,
+    ItemTypeWater,
+    ItemTypeFertilizer,
+    ItemTypeTreasure
+
+};
+
+enum Rarity
+{
+    RarityRare,
+    RarityEpic,
+    RarityLegendary
+
+};
+
 class Item
 {
     Item(int happinessChange, int hydrationChange, int nutritionChange, int healthChange);
@@ -19,21 +40,4 @@ private:
     int m_healthChange;
 };
 
-enum ItemType
-{
-    ItemTypeFood,
-    ItemTypeToy,
-    ItemTypeWater,
-    ItemTypeFertilizer,
-    ItemTypeTreasure
-
-};
-
-enum Rarity
-{
-    RarityRare,
-    RarityEpic,
-    RarityLegendary
-
-};
-
+#endif
