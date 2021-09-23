@@ -1,4 +1,5 @@
-#pragma once
+#ifndef ITEM
+#define ITEM
 
 #include<random>
 #include<iostream>
@@ -72,3 +73,4 @@ private:
 
 void printItemArray(std::vector<Item> itemArray[]);
 
+#endif //ITEM

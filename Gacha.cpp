@@ -1,12 +1,40 @@
+#include <fstream>
+#include <sstream>
+
 #include "Gacha.hpp"
 
 Item gacha()
 {
     
     Item item = Item();
+    
+    animateGacha(item);
 
     return item;
 }
+
+
+void animateGacha(Item item)
+{
+    std::wstring tempString;
+    std::wstringstream chestOpen;
+    std::wstringstream chestClosed;
+    std::wifstream f ("chestOpen.txt");
+
+    while(getline(f, tempString))
+    {
+        chestOpen << tempString << "\n";
+    }
+
+    while(getline(f, tempString))
+    {
+        chestClosed << tempString << "\n";
+    }
+    
+    std::wcout << chestClosed.str();
+
+}
+
 
 void printGacha(Item item)
 {
