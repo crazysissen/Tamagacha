@@ -1,8 +1,8 @@
-#ifndef ITEM
-#define ITEM
+#ifndef H_ITEM
+#define H_ITEM
 
-#include<random>
-#include<iostream>
+#include <random>
+#include <iostream>
 
 #include "ctools.hpp"
 
@@ -30,7 +30,6 @@ enum Rarity
 };
 
 class Item
-
 {
 public:
     Item();
@@ -73,4 +72,4 @@ private:
 
 void printItemArray(std::vector<Item> itemArray[]);
 
-#endif //ITEM
+#endif //H_ITEM

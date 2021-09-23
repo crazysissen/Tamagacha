@@ -12,3 +12,6 @@ debug:
 
 release:
 	$(CC) $(CTARGET) $(CRFLAGS) $(ROUT) $(CFLAGS)
+
+git:
+	

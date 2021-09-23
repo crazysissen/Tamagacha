@@ -3,8 +3,11 @@
 #include <time.h>
 #include <string>
 
-#include "Gacha.hpp"
+#include "ctools.hpp"
+#include "gameplay.hpp"
 
+#include "Item.hpp"
+#include "Gacha.hpp"
 
 int main()
 {
@@ -21,43 +24,25 @@ int main()
     bool running = true;
     while(running)
     {
-        if(health > 100)
-        {
-            health = 100;
-        }
-        if(happiness > 100)
-        {
-            happiness = 100;
-        }
-        if(hydration > 100)
-        {
-            hydration = 100;
-        }
-        if(nutrition > 100)
-        {
-            nutrition = 100;
-        }
-        
-        //Insert game here
-        std::cout << "=======================~~ TamaGacha ~~========================\n";
+        std::cout << "=========================== TamaGacha ============================\n";
         std::cout << 
             ct::Mod() << "Healthiness: " << ct::Mod(ct::CGreen) << health <<
-            ct::Mod() << "  Happiness: " << ct::Mod(ct::CMagenta) << happiness <<
+            ct::Mod() << "  Happiness: " << ct::Mod(ct::CYellow) << happiness <<
             ct::Mod() << "  Hydration: " << ct::Mod(ct::CCyan) << hydration <<
             ct::Mod() << "  Nutrition: " << ct::Mod(ct::CRed) << nutrition << 
-            ct::Mod() << "  Money: " << ct::Mod(ct::CYellow) << money << 
+            ct::Mod() << "\n(1): Gacha       (2): View Items  (3): Use Items" <<
+            ct::Mod() << "\n(4): View Plant  (5): Minigame    (6): Exit Game"  <<
+            ct::Mod() << "\n(7): MORE MONEY" <<
+            ct::Mod() << "\nEnter input: ";
 
-            ct::Mod() << "\n\nEnter input: ";
-
-        int input = ct::getInt(0, 10);
+        int input = ct::getInt(1, 8);
         std::cout << '\n';
 
-        if (input == 0)
+        switch (input)
         {
-            running = false;
-        }
-        else if(input == 1)
-        {
+
+        // Gacha
+        case 1:
             if(money > 0)
             {
                 money--;
@@ -80,42 +65,67 @@ int main()
             {
                 std::cout << ct::Mod(ct::CRed) << "You have no money\n\n" << ct::Mod();
             }
-        }
-        else if(input == 2)
-        {
+            break;
+
+        case 2:
             std::cout  << ct::Mod(ct::CCyan) << "Items:\n" << ct::Mod();
             printItemArray(playerItems);
             std::cout << '\n';
-        }
-        else if(input == 3)
-        {
-            bool validInput = false;
-            std::cout << "Which item would you like to use?\n";
+            break;
 
-            while(!validInput)
+        case 3:
             {
-                printItemArray(playerItems);
-                input = ct::getInt(0, (ItemTypeCount - 1) * RarityCount);
+                bool validInput = false;
+                std::cout << "Which item would you like to use?\n";
 
-                if(!playerItems[input].empty())
+                while(!validInput)
                 {
-                    health += playerItems[input][0].getHealthChange();
-                    happiness += playerItems[input][0].getHappinessChange();
-                    hydration += playerItems[input][0].getHydrationChange();
-                    nutrition += playerItems[input][0].getNutritionChange();
+                    printItemArray(playerItems);
+                    input = ct::getInt(0, (ItemTypeCount - 1) * RarityCount);
 
-                    std::cout << "\nUsed one " << playerItems[input][0].getItemName() << "\n\n";
+                    if(!playerItems[input].empty())
+                    {
+                        health += playerItems[input][0].getHealthChange();
+                        happiness += playerItems[input][0].getHappinessChange();
+                        hydration += playerItems[input][0].getHydrationChange();
+                        nutrition += playerItems[input][0].getNutritionChange();
 
-                    playerItems[input].pop_back();
-                    validInput = true;
-                }
-                else
-                {
-                    std::cout << ct::Mod(ct::CRed) 
-                    << "\nInvalid input, please try again\n" << ct::Mod();
-                }
-            }   
+                        std::cout << "\nUsed one " << playerItems[input][0].getItemName() << "\n\n";
+
+                        playerItems[input].pop_back();
+                        validInput = true;
+                    }
+                    else
+                    {
+                        std::cout << ct::Mod(ct::CRed) 
+                        << "\nInvalid input, please try again\n" << ct::Mod();
+                    }
+                }   
+            }
+            break;
+
+        case 4:
+            break;
+
+        case 5:
+            gMinigame();
+            break;
+
+        // Exit
+        case 6:
+            running = false;
+            break;
+
+        case 7:
+            gBuyMoney();
+            money += 10;
+            break;
+
+        default:
+            break;
         }
+
+
 
     }
 
