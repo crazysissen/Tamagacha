@@ -7,7 +7,7 @@ Item gacha()
 {
     
     Item item = Item();
-    
+
     animateGacha(item);
 
     return item;
@@ -17,21 +17,28 @@ Item gacha()
 void animateGacha(Item item)
 {
     std::wstring tempString;
-    std::wstringstream chestOpen;
-    std::wstringstream chestClosed;
-    std::wifstream f ("chestOpen.txt");
+    std::wifstream f ("images/chestOpen.txt");
 
-    while(getline(f, tempString))
-    {
-        chestOpen << tempString << "\n";
-    }
+    std::wstringstream chestOpen;
+    chestOpen << f.rdbuf();
+    f.close();
+
+    
+    std::wstringstream chestClosed;
+
+    f.open("images/chestClosed.txt");
 
     while(getline(f, tempString))
     {
         chestClosed << tempString << "\n";
     }
     
-    std::wcout << chestClosed.str();
+    f.close();
+
+    std::wcout << chestClosed.str() << "\n";
+
+    std::wofstream f2("images/test.txt");
+    f2 << chestOpen.str();
 
 }
 
