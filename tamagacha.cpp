@@ -106,6 +106,7 @@ int main()
             break;
 
         case 4:
+        std::cout << "Not yet implemented" << std::endl;
             break;
 
         case 5:
