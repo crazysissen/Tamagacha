@@ -16,7 +16,7 @@ void gBuyMoney()
         "Confirm (y/n): %%%%%%%%y\n"
         ".%%%.%%%.%%Confirmed!%%\n\n"
         "Thank you for your purchase!\n\n"
-        "You recieved #10 money#%%%%%%%%%%%\n\n\n";
+        "You recieved %%%%#10 money#%%%%%%%%%%%\n\n\n";
         
     bool randomizing = false;
     bool colorizing = false;
