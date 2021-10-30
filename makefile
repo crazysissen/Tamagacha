@@ -7,7 +7,7 @@ CRFLAGS = -O2
 DOUT = -o tamagacha-d.exe
 ROUT = -o tamagacha.exe
 
-BRANCH := $(shell git rev-parse --abrev-ref HEAD)
+BRANCH := $(shell git for-each-ref --format='%(objectname) %(refname:short)' refs/heads | awk "/^$$(git rev-parse HEAD)/ {print \$$2}")
 
 debug:
 	$(CC) $(CTARGET) $(CDFLAGS) $(DOUT) $(CFLAGS)
