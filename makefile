@@ -15,11 +15,19 @@ debug:
 release:
 	$(CC) $(CTARGET) $(CRFLAGS) $(ROUT) $(CFLAGS)
 
-g_push:
+g_commit:
 	git add .
 	git commit -m "$m"
-	git push -u origin $(BRANCH)
 
+g_push:
+	make g_commit -m "m="$m""
+	git push -u origin $(BRANCH)
+	
 g_pull:
 	git fetch
 	gitMerge
+
+g_buildMain:
+	make g_push 
+	git checkout main
+	
