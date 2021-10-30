@@ -20,9 +20,9 @@ g_commit:
 	git commit -m "$m"
 
 g_push:
-	make g_commit -m "m="$m""
+	make g_commit -m m="$m"
 	git push -u origin $(BRANCH)
-	
+
 g_pull:
 	git fetch
 	gitMerge
